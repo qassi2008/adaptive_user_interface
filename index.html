@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive UI for Cognitive Load Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+</head>
+<body>
+    <div class="navbar">
+        <h1>Adaptive Dashboard</h1>
+        <button id="increaseLoad">Simulate Error</button>
+        <button id="increaseHeartRate">Increase Heart Rate</button>
+        <button id="resetLoad">Reset Load</button>
+        <span class="load-status">Cognitive Load Level: <span id="loadLevel">0</span></span>
+        <span class="heart-status">Heart Rate: <span id="heartRate">70</span> BPM</span>
+    </div>
+
+    <!-- Progress Bars for Cognitive Load and Heart Rate -->
+    <div class="progress">
+        <label>Cognitive Load:</label>
+        <progress id="loadProgress" value="0" max="100"></progress>
+    </div>
+    <div class="progress">
+        <label>Heart Rate:</label>
+        <progress id="heartRateProgress" value="70" max="150"></progress>
+    </div>
+
+    <!-- Preferences Section -->
+    <div class="preferences">
+        <h2>User Preferences</h2>
+        <label for="breakTime">Break Reminder Time (minutes):</label>
+        <input type="number" id="breakTime" min="1" value="5">
+        
+        <label for="maxHeartRate">Max Heart Rate Before Alert (bpm):</label>
+        <input type="number" id="maxHeartRate" min="60" value="100">
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <p></p>
+    </div>
+
+    <div id="dashboard">
+        <div class="section" id="chart">
+            <h2>Cognitive Load Over Time</h2>
+            <canvas id="cognitiveLoadChart"></canvas> <!-- Chart for cognitive load tracking -->
+        </div>
+        
+        <div class="section" id="tools">
+            <h2>Tools</h2>
+            <ul id="toolList">
+                <li>Data Filters: Adjust data by date, category, or type</li>
+                <li>Search Tool: Quickly find specific reports</li>
+                <li>Export Data: Export reports as CSV, PDF, etc.</li>
+                <li>Detailed Analytics: View advanced metrics</li>
+                <li>Custom Reporting: Generate custom reports based on criteria</li>
+            </ul>
+        </div>
+
+        <div class="section" id="summary">
+            <h2>Summary</h2>
+            <p id="summaryContent">This section contains key insights and important data points.</p> <!-- Dynamic summary content -->
+        </div>
+
+        <!-- Export Report Button -->
+        <button id="exportReport">Export Weekly Report</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
